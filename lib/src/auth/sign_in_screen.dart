@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:loja/src/auth/components/custom_text_field.dart';
 import 'package:loja/src/auth/config/custom_colors.dart';
+import 'package:loja/src/auth/sign_up_screen.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -16,17 +17,15 @@ class SignInScreen extends StatelessWidget {
         child: SizedBox(
           height: size.height,
           width: size.width,
-
           child: Column(
             children: [
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-      
-      // Nome do app
-                     Text.rich(
-                       TextSpan(
+                    // Nome do app
+                    Text.rich(
+                      TextSpan(
                         style: const TextStyle(
                           fontSize: 40,
                         ),
@@ -47,8 +46,8 @@ class SignInScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-      
-      // Categorias
+
+                    // Categorias
                     SizedBox(
                       height: 30,
                       child: DefaultTextStyle(
@@ -72,8 +71,8 @@ class SignInScreen extends StatelessWidget {
                   ],
                 ),
               ),
-      
-      // Formulário
+
+              // Formulário
               Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 32,
@@ -95,8 +94,8 @@ class SignInScreen extends StatelessWidget {
                     // Senha
                     const CustomTextField(
                         icon: Icons.lock, label: 'Senha', isSecret: true),
-      
-      // Botão de Entrar
+
+                    // Botão de Entrar
                     SizedBox(
                       height: 50,
                       child: ElevatedButton(
@@ -114,8 +113,8 @@ class SignInScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-      
-      // Esqueceu a Senha
+
+                    // Esqueceu a Senha
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
@@ -128,8 +127,8 @@ class SignInScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-      
-      // Divisor
+
+                    // Divisor
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10),
                       child: Row(
@@ -153,7 +152,7 @@ class SignInScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-      // Botão de novo usuário
+                    // Botão de novo usuário
                     SizedBox(
                       height: 50,
                       child: OutlinedButton(
@@ -166,7 +165,12 @@ class SignInScreen extends StatelessWidget {
                             color: Colors.green,
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (c) {
+                            return SignUpScreen();
+                          }));
+                        },
                         child: const Text(
                           'Criar conta',
                           style: TextStyle(
